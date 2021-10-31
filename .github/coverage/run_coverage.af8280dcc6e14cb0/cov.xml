@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM 'http://cobertura.sourceforge.net/xml/coverage-04.dtd'>
-<coverage line-rate="0.986" lines-covered="72" lines-valid="73" branch-rate="1.0" branches-covered="1.0" branches-rate="1.0" complexity="1.0" version="1.9" timestamp="1635690305">
+<coverage line-rate="0.986" lines-covered="72" lines-valid="73" branch-rate="1.0" branches-covered="1.0" branches-rate="1.0" complexity="1.0" version="1.9" timestamp="1635690970">
 	<sources>
 		<source>/home/user/.opt/q9f/bip39.cr/src/</source>
 	</sources>
@@ -9,83 +9,83 @@
 			<classes>
 				<class name="util_cr" filename="util.cr" branch-rate="1.0" complexity="1.0" line-rate="1.000">
 					<lines>
+						<line number="18" hits="1"/>
 						<line number="19" hits="1"/>
 						<line number="20" hits="1"/>
 						<line number="21" hits="1"/>
-						<line number="22" hits="1"/>
-						<line number="24" hits="2"/>
+						<line number="23" hits="2"/>
+						<line number="29" hits="1"/>
 						<line number="30" hits="1"/>
 						<line number="31" hits="1"/>
 						<line number="32" hits="1"/>
-						<line number="33" hits="1"/>
-						<line number="37" hits="3"/>
+						<line number="36" hits="3"/>
+						<line number="37" hits="2"/>
 						<line number="38" hits="2"/>
-						<line number="39" hits="2"/>
+						<line number="42" hits="1"/>
 						<line number="43" hits="1"/>
 						<line number="44" hits="1"/>
 						<line number="45" hits="1"/>
-						<line number="46" hits="1"/>
-						<line number="50" hits="2"/>
+						<line number="49" hits="2"/>
+						<line number="50" hits="1"/>
 						<line number="51" hits="1"/>
-						<line number="52" hits="1"/>
 					</lines>
 				</class>
 				<class name="bip39_cr" filename="bip39.cr" branch-rate="1.0" complexity="1.0" line-rate="0.981">
 					<lines>
-						<line number="41" hits="7"/>
-						<line number="42" hits="3"/>
-						<line number="43" hits="1"/>
-						<line number="45" hits="2"/>
-						<line number="46" hits="2"/>
-						<line number="50" hits="3"/>
-						<line number="51" hits="2"/>
+						<line number="39" hits="7"/>
+						<line number="40" hits="3"/>
+						<line number="41" hits="1"/>
+						<line number="43" hits="2"/>
+						<line number="44" hits="2"/>
+						<line number="48" hits="3"/>
+						<line number="49" hits="2"/>
+						<line number="50" hits="1"/>
 						<line number="52" hits="1"/>
-						<line number="54" hits="1"/>
-						<line number="55" hits="1"/>
-						<line number="59" hits="4"/>
-						<line number="60" hits="2"/>
+						<line number="53" hits="1"/>
+						<line number="57" hits="4"/>
+						<line number="58" hits="2"/>
+						<line number="59" hits="1"/>
 						<line number="61" hits="1"/>
-						<line number="63" hits="1"/>
-						<line number="64" hits="1"/>
-						<line number="68" hits="3"/>
-						<line number="69" hits="2"/>
-						<line number="72" hits="1"/>
+						<line number="62" hits="1"/>
+						<line number="66" hits="3"/>
+						<line number="67" hits="2"/>
+						<line number="70" hits="1"/>
+						<line number="73" hits="1"/>
 						<line number="75" hits="1"/>
+						<line number="76" hits="2"/>
 						<line number="77" hits="1"/>
-						<line number="78" hits="2"/>
-						<line number="79" hits="1"/>
+						<line number="81" hits="1"/>
+						<line number="82" hits="1"/>
 						<line number="83" hits="1"/>
 						<line number="84" hits="1"/>
-						<line number="85" hits="1"/>
-						<line number="86" hits="1"/>
-						<line number="89" hits="1"/>
-						<line number="92" hits="1"/>
-						<line number="93" hits="1"/>
+						<line number="87" hits="1"/>
+						<line number="90" hits="1"/>
+						<line number="91" hits="1"/>
+						<line number="95" hits="1"/>
+						<line number="96" hits="1"/>
 						<line number="97" hits="1"/>
 						<line number="98" hits="1"/>
-						<line number="99" hits="1"/>
-						<line number="100" hits="1"/>
-						<line number="104" hits="2"/>
-						<line number="107" hits="1"/>
+						<line number="102" hits="2"/>
+						<line number="104" hits="1"/>
+						<line number="105" hits="1"/>
 						<line number="108" hits="1"/>
-						<line number="111" hits="1"/>
-						<line number="112" hits="1"/>
+						<line number="109" hits="1"/>
+						<line number="113" hits="1"/>
+						<line number="114" hits="1"/>
+						<line number="115" hits="1"/>
 						<line number="116" hits="1"/>
 						<line number="117" hits="1"/>
-						<line number="118" hits="1"/>
-						<line number="119" hits="1"/>
-						<line number="120" hits="1"/>
-						<line number="121" hits="0"/>
+						<line number="118" hits="0"/>
+						<line number="122" hits="1"/>
+						<line number="123" hits="1"/>
 						<line number="125" hits="1"/>
-						<line number="126" hits="1"/>
-						<line number="128" hits="1"/>
+						<line number="130" hits="1"/>
+						<line number="131" hits="1"/>
+						<line number="132" hits="1"/>
 						<line number="133" hits="1"/>
 						<line number="134" hits="1"/>
-						<line number="135" hits="1"/>
-						<line number="136" hits="1"/>
-						<line number="137" hits="1"/>
-						<line number="141" hits="2"/>
-						<line number="142" hits="1"/>
+						<line number="138" hits="2"/>
+						<line number="139" hits="1"/>
 					</lines>
 				</class>
 			</classes>
