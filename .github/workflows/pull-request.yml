@@ -1,12 +1,12 @@
 name: Pull Requests
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
     branches:
-    - main
-  pull-request:
-    branches:
-    - main
+      - main
 
 jobs:
   build:
