@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 1.2.0">
+<meta name="crystal_docs.project_version" content="q9f/docs/html-dev">
+<meta name="crystal_docs.project_name" content="bip39">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="bip39">
+  <title>Bip0039::Mnemonic - bip39 q9f/docs/html-dev</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          bip39
+        </a>
+      </h1>
+
+      <span class="project-version">
+        q9f/docs/html-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="bip39/Bip0039" data-name="bip0039">
+      <a href="../Bip0039.html">Bip0039</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="bip39/Bip0039/Mnemonic" data-name="bip0039::mnemonic">
+      <a href="../Bip0039/Mnemonic.html">Mnemonic</a>
+      
+    </li>
+  
+  <li class=" " data-id="bip39/Bip0039/Util" data-name="bip0039::util">
+      <a href="../Bip0039/Util.html">Util</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Bip0039::Mnemonic
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Bip0039/Mnemonic.html">Bip0039::Mnemonic</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>Implements a <code><a href="../Bip0039.html">Bip0039</a></code> Mnemonic class.
+Ref: <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">bitcoin/bips/bip-0039</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      bip39.cr
+    
+    <br/>
+  
+
+
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new%28ent%3AInt32%3D128%29-class-method" class="signature"><strong>.new</strong>(ent : Int32 = <span class="n">128</span>)</a>
+        
+          <div class="summary"><p>Implements a <code><a href="../Bip0039.html">Bip0039</a></code> Mnemonic with a random entropy of ENT bits.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28hex%3AString%29-class-method" class="signature"><strong>.new</strong>(hex : String)</a>
+        
+          <div class="summary"><p>Implements a <code><a href="../Bip0039.html">Bip0039</a></code> Mnemonic restored from a hexadecimal seed.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28seed%3ABigInt%2Cent%3AInt32%3D128%29-class-method" class="signature"><strong>.new</strong>(seed : BigInt, ent : Int32 = <span class="n">128</span>)</a>
+        
+          <div class="summary"><p>Implements a <code><a href="../Bip0039.html">Bip0039</a></code> Mnemonic restored from a numeric seed of given size.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28phrase%3AArray%28String%29%29-class-method" class="signature"><strong>.new</strong>(phrase : Array(String))</a>
+        
+          <div class="summary"><p>Implements a <code><a href="../Bip0039.html">Bip0039</a></code> Mnemonic restored from a seed phrase.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#ent%3AInt32-instance-method" class="signature"><strong>#ent</strong> : Int32</a>
+        
+          <div class="summary"><p>The bit-size of the entropy of the mnemonic.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ent%3D%28ent%3AInt32%29-instance-method" class="signature"><strong>#ent=</strong>(ent : Int32)</a>
+        
+          <div class="summary"><p>The bit-size of the entropy of the mnemonic.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#seed%3ABigInt-instance-method" class="signature"><strong>#seed</strong> : BigInt</a>
+        
+          <div class="summary"><p>The random seed of the mnemonic.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#seed%3D%28seed%3ABigInt%29-instance-method" class="signature"><strong>#seed=</strong>(seed : BigInt)</a>
+        
+          <div class="summary"><p>The random seed of the mnemonic.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_hex%3AString-instance-method" class="signature"><strong>#to_hex</strong> : String</a>
+        
+          <div class="summary"><p>Generates a padded hex string containing the seed of the size of ENT bits.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_words%3AArray%28String%29-instance-method" class="signature"><strong>#to_words</strong> : Array(String)</a>
+        
+          <div class="summary"><p>Generates a phrase of words according to the <code><a href="../Bip0039.html">Bip0039</a></code> specification based on the used seed.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(ent:Int32=128)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(ent : Int32 = <span class="n">128</span>)
+
+        <a class="method-permalink" href="#new%28ent%3AInt32%3D128%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Implements a <code><a href="../Bip0039.html">Bip0039</a></code> Mnemonic with a random entropy of ENT bits.</p>
+<p>Parameters:</p>
+<ul>
+<li><code><a href="../Bip0039/Mnemonic.html#ent%3AInt32-instance-method">#ent</a></code> (<code>Int32</code>): the bit-size of the random entropy to use (128/160/192/224/256).</li>
+</ul>
+<pre><code class="language-crystal">mnemonic <span class="o">=</span> <span class="t">Bip0039</span><span class="t">::</span><span class="t">Mnemonic</span>.<span class="k">new</span> <span class="n">256</span>
+<span class="c"># =&gt; #&lt;Bip0039::Mnemonic:0x7f8be5611d80&gt;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(hex:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(hex : String)
+
+        <a class="method-permalink" href="#new%28hex%3AString%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Implements a <code><a href="../Bip0039.html">Bip0039</a></code> Mnemonic restored from a hexadecimal seed.</p>
+<p>Parameters:</p>
+<ul>
+<li><code>hex</code> (<code>String</code>): the hex-seed to use to generate the mnemonic from.</li>
+</ul>
+<pre><code class="language-crystal">mnemonic <span class="o">=</span> <span class="t">Bip0039</span><span class="t">::</span><span class="t">Mnemonic</span>.<span class="k">new</span> <span class="s">&quot;9e885d952ad362caebefe34e91bd2&quot;</span>
+<span class="c"># =&gt; #&lt;Bip0039::Mnemonic:0x7f8be5611d80&gt;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(seed:BigInt,ent:Int32=128)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(seed : BigInt, ent : Int32 = <span class="n">128</span>)
+
+        <a class="method-permalink" href="#new%28seed%3ABigInt%2Cent%3AInt32%3D128%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Implements a <code><a href="../Bip0039.html">Bip0039</a></code> Mnemonic restored from a numeric seed of given size.</p>
+<p>Parameters:</p>
+<ul>
+<li><code><a href="../Bip0039/Mnemonic.html#seed%3ABigInt-instance-method">#seed</a></code> (<code>BigInt</code>): the numeric seed to use to generate the mnemonic from.</li>
+<li><code><a href="../Bip0039/Mnemonic.html#ent%3AInt32-instance-method">#ent</a></code> (<code>Int32</code>): the bit-size of the random entropy to use (128/160/192/224/256).</li>
+</ul>
+<pre><code class="language-crystal">mnemonic <span class="o">=</span> <span class="t">Bip0039</span><span class="t">::</span><span class="t">Mnemonic</span>.<span class="k">new</span> <span class="t">BigInt</span>.<span class="k">new</span>(<span class="s">&quot;9e885d952ad362caebefe34e91bd2&quot;</span>, <span class="n">16</span>), <span class="n">128</span>
+<span class="c"># =&gt; #&lt;Bip0039::Mnemonic:0x7f8be5611d80&gt;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(phrase:Array(String))-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(phrase : Array(String))
+
+        <a class="method-permalink" href="#new%28phrase%3AArray%28String%29%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Implements a <code><a href="../Bip0039.html">Bip0039</a></code> Mnemonic restored from a seed phrase.</p>
+<p>Parameters:</p>
+<ul>
+<li><code>phrase</code> (<code>Array(String)</code>): the seed phrase to recover the mnemonic from (12/15/18/21/24 words).</li>
+</ul>
+<pre><code class="language-crystal">mnemonic <span class="o">=</span> <span class="t">Bip0039</span><span class="t">::</span><span class="t">Mnemonic</span>.<span class="k">new</span> [<span class="s">&quot;ozone&quot;</span>, <span class="s">&quot;drill&quot;</span>, <span class="s">&quot;grab&quot;</span>, <span class="s">&quot;fiber&quot;</span>, <span class="s">&quot;curtain&quot;</span>, <span class="s">&quot;grace&quot;</span>, <span class="s">&quot;pudding&quot;</span>, <span class="s">&quot;thank&quot;</span>, <span class="s">&quot;cruise&quot;</span>, <span class="s">&quot;elder&quot;</span>, <span class="s">&quot;eight&quot;</span>, <span class="s">&quot;picnic&quot;</span>]
+<span class="c"># =&gt; #&lt;Bip0039::Mnemonic:0x7f8be5611d80&gt;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="ent:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>ent</strong> : Int32
+
+        <a class="method-permalink" href="#ent%3AInt32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The bit-size of the entropy of the mnemonic.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ent=(ent:Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>ent=</strong>(ent : Int32)
+
+        <a class="method-permalink" href="#ent%3D%28ent%3AInt32%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The bit-size of the entropy of the mnemonic.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="seed:BigInt-instance-method">
+      <div class="signature">
+        
+        def <strong>seed</strong> : BigInt
+
+        <a class="method-permalink" href="#seed%3ABigInt-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The random seed of the mnemonic.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="seed=(seed:BigInt)-instance-method">
+      <div class="signature">
+        
+        def <strong>seed=</strong>(seed : BigInt)
+
+        <a class="method-permalink" href="#seed%3D%28seed%3ABigInt%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The random seed of the mnemonic.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_hex:String-instance-method">
+      <div class="signature">
+        
+        def <strong>to_hex</strong> : String
+
+        <a class="method-permalink" href="#to_hex%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Generates a padded hex string containing the seed of the size of ENT bits.</p>
+<pre><code class="language-crystal"><span class="t">Bip0039</span><span class="t">::</span><span class="t">Mnemonic</span>.<span class="k">new</span>.to_hex
+<span class="c"># =&gt; &quot;9e885d952ad362caeb4efe34a8e91bd2&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_words:Array(String)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_words</strong> : Array(String)
+
+        <a class="method-permalink" href="#to_words%3AArray%28String%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Generates a phrase of words according to the <code><a href="../Bip0039.html">Bip0039</a></code> specification
+based on the used seed.</p>
+<pre><code class="language-crystal"><span class="t">Bip0039</span><span class="t">::</span><span class="t">Mnemonic</span>.<span class="k">new</span>.to_words
+<span class="c"># =&gt; [&quot;ozone&quot;, &quot;drill&quot;, &quot;grab&quot;, &quot;fiber&quot;, &quot;curtain&quot;, &quot;grace&quot;, &quot;pudding&quot;, &quot;thank&quot;, &quot;cruise&quot;, &quot;elder&quot;, &quot;eight&quot;, &quot;picnic&quot;]</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

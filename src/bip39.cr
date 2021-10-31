@@ -19,23 +19,38 @@ require "openssl"
 require "./util"
 require "./version"
 
+# Implements 128/160/192/224/256-bit `BIP-0039` Mnemonics.
+# Ref: [bitcoin/bips/bip-0039](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki)
 module Bip0039
-  # implements bip-39 mnemonics
-  # https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki
+  # Implements a `Bip0039` Mnemonic class.
+  # Ref: [bitcoin/bips/bip-0039](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki)
   class Mnemonic
-    # the entropy of the mnemonic
-    getter ent : Int32
+    # The bit-size of the entropy of the mnemonic.
+    property ent : Int32
 
-    # the random seed of the mnemonic
-    getter seed : BigInt
+    # The random seed of the mnemonic.
+    property seed : BigInt
 
-    # generate a random 128-bit mnemonic
+    # Implements a `Bip0039` Mnemonic with a default 128-bit entropy.
+    #
+    # ```
+    # mnemonic = Bip0039::Mnemonic.new
+    # # => #<Bip0039::Mnemonic:0x7f8be5611d80>
+    # ```
     def initialize
       @ent = 128
       @seed = generate_random_seed(@seed)
     end
 
-    # generate a randome mneminuc of ENT bits
+    # Implements a `Bip0039` Mnemonic with a random entropy of ENT bits.
+    #
+    # Parameters:
+    # * `ent` (`Int32`): the bit-size of the random entropy to use (128/160/192/224/256).
+    #
+    # ```
+    # mnemonic = Bip0039::Mnemonic.new 256
+    # # => #<Bip0039::Mnemonic:0x7f8be5611d80>
+    # ```
     def initialize(ent : Int32 = 128)
       if ent % 32 != 0 || ent < 128 || ent > 256
         raise "Can only generate seeds of 128/160/192/224/256-bit entropy"
@@ -44,7 +59,15 @@ module Bip0039
       @seed = generate_random_seed(ent)
     end
 
-    # restore a mnemonic from a given hex string seed
+    # Implements a `Bip0039` Mnemonic restored from a hexadecimal seed.
+    #
+    # Parameters:
+    # * `hex` (`String`): the hex-seed to use to generate the mnemonic from.
+    #
+    # ```
+    # mnemonic = Bip0039::Mnemonic.new "9e885d952ad362caebefe34e91bd2"
+    # # => #<Bip0039::Mnemonic:0x7f8be5611d80>
+    # ```
     def initialize(hex : String)
       if hex.size % 8 != 0 || hex.size < 32 || hex.size > 64
         raise "Can only parse 128/160/192/224/256-bit hex seeds"
@@ -53,7 +76,16 @@ module Bip0039
       @seed = BigInt.new hex, 16
     end
 
-    # restore a mnemonic of given entropy from given seed
+    # Implements a `Bip0039` Mnemonic restored from a numeric seed of given size.
+    #
+    # Parameters:
+    # * `seed` (`BigInt`): the numeric seed to use to generate the mnemonic from.
+    # * `ent` (`Int32`): the bit-size of the random entropy to use (128/160/192/224/256).
+    #
+    # ```
+    # mnemonic = Bip0039::Mnemonic.new BigInt.new("9e885d952ad362caebefe34e91bd2", 16), 128
+    # # => #<Bip0039::Mnemonic:0x7f8be5611d80>
+    # ```
     def initialize(seed : BigInt, ent : Int32 = 128)
       if ent % 32 != 0 || ent < 128 || ent > 256
         raise "Can only recover seeds of 128/160/192/224/256-bit entropy"
@@ -62,53 +94,62 @@ module Bip0039
       @seed = seed
     end
 
-    # restore a mnemonic from a given bip-39 phrase
+    # Implements a `Bip0039` Mnemonic restored from a seed phrase.
+    #
+    # Parameters:
+    # * `phrase` (`Array(String)`): the seed phrase to recover the mnemonic from (12/15/18/21/24 words).
+    #
+    # ```
+    # mnemonic = Bip0039::Mnemonic.new ["ozone", "drill", "grab", "fiber", "curtain", "grace", "pudding", "thank", "cruise", "elder", "eight", "picnic"]
+    # # => #<Bip0039::Mnemonic:0x7f8be5611d80>
+    # ```
     def initialize(phrase : Array(String))
       raise "Invalid seed phrase: wrong size" if phrase.size < 12 || phrase.size > 24 || phrase.size % 3 != 0
 
-      # load the english dictionary for bip-39
-      dictionary = Util.bip0039_word_list
+      # Load the english dictionary for BIP-0039.
+      dictionary = Util.word_list
 
-      # get indices for each of the words and compute a checksummed seed
+      # Get indices for each of the words and compute a checksummed seed.
       checksummed_seed = ""
       phrase.each do |word|
         index = dictionary.index(word)
+
+        # Ensure every word is part of our dictionary.
         raise "Invalid seed phrase: word not in dictionary" if index.nil?
         checksummed_seed += Util.num_to_padded_bin index, 11
       end
 
-      # retrieve seed and checksum
+      # Retrieve seed and checksum.
       seed_length = (checksummed_seed.size * 32 / 33).to_i
       checksum_length = checksummed_seed.size - seed_length
       seed = checksummed_seed[0, seed_length]
       checksum = checksummed_seed[seed_length, checksum_length]
 
-      # not every phrase is valid, therefore we verify the checksum bits
+      # Not every phrase is valid, therefore we verify the checksum bits.
       raise "Invalid seed phrase: checksum mismatch" if checksum != checksum Util.bin_to_padded_hex seed, seed.size
 
-      # store the seed
+      # Store the seed.
       @ent = seed.size
       @seed = BigInt.new seed, 2
     end
 
-    # generates a random seed of ENT bits entropy
-    private def generate_random_seed(ent : Int32) : BigInt
-      raise "Invalid entropy provided" if ent % 32 != 0
-      seed = Random::Secure.hex (ent / 8).to_i
-      return BigInt.new seed, 16
-    end
-
-    # generates a phrase of words according to the bip-39 specification
+    # Generates a phrase of words according to the `Bip0039` specification
+    # based on the used seed.
+    #
+    # ```
+    # Bip0039::Mnemonic.new.to_words
+    # # => ["ozone", "drill", "grab", "fiber", "curtain", "grace", "pudding", "thank", "cruise", "elder", "eight", "picnic"]
+    # ```
     def to_words : Array(String)
-      # a checksum is generated by taking the first ENT / 32 bits of its SHA256 hash
+      # A checksum is generated by taking the first ENT / 32 bits of its SHA256 hash.
       seed_hex = Util.num_to_padded_hex @seed, @ent
       checksum_bin = checksum seed_hex
 
-      # this checksum is appended to the end of the initial entropy
+      # This checksum is appended to the end of the initial entropy.
       seed_bin = Util.num_to_padded_bin @seed, @ent
       checksummed_seed = seed_bin + checksum_bin
 
-      # next, these concatenated bits are split into groups of 11 bits,
+      # Next, these concatenated bits are split into groups of 11 bits,
       # each encoding a number from 0-2047, serving as an index into a wordlist.
       iterator = 0
       split_size = 11
@@ -118,8 +159,9 @@ module Bip0039
         iterator += split_size
       end
 
-      # finally, we convert these numbers into words and use the joined words as a mnemonic sentence.
-      word_list = Util.bip0039_word_list
+      # Finally, we convert these numbers into words and use the joined words
+      # as a mnemonic sentence.
+      word_list = Util.word_list
       phrase = [] of String
       word_indices.each do |index|
         phrase << word_list[index]
@@ -127,16 +169,35 @@ module Bip0039
       return phrase
     end
 
-    def checksum(seed_hex : String) : String
-      sha256sum_hex = OpenSSL::Digest.new("SHA256").update(seed_hex.hexbytes).final.hexstring
+    # Generates a padded hex string containing the seed of the size of ENT bits.
+    #
+    # ```
+    # Bip0039::Mnemonic.new.to_hex
+    # # => "9e885d952ad362caeb4efe34a8e91bd2"
+    # ```
+    def to_hex : String
+      return Util.num_to_padded_hex @seed, @ent
+    end
+
+    # Extracts the first N SHA256-checksum bits from a given hexadecimal seed.
+    #
+    # Parameters:
+    # * `hex` (`String`): the seed to be checksummed.
+    private def checksum(hex : String) : String
+      sha256sum_hex = OpenSSL::Digest.new("SHA256").update(hex.hexbytes).final.hexstring
       sha256sum_bin = Util.hex_to_padded_bin sha256sum_hex, 256
-      checksum_length = (seed_hex.size / 8).to_i
+      checksum_length = (hex.size / 8).to_i
       return sha256sum_bin[0, checksum_length]
     end
 
-    # returns the seed as hex string
-    def to_hex : String
-      return Util.num_to_padded_hex @seed, @ent
+    # Generates a random seed of ENT bits of entropy.
+    #
+    # Parameters:
+    # * `ent` (`Int32`): the bit-size of the random entropy to use (128/160/192/224/256).
+    private def generate_random_seed(ent : Int32) : BigInt
+      raise "Invalid entropy provided" if ent % 32 != 0
+      seed = Random::Secure.hex (ent / 8).to_i
+      return BigInt.new seed, 16
     end
   end
 end

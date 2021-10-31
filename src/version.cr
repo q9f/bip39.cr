@@ -12,6 +12,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Implements 128/160/192/224/256-bit `BIP-0039` Mnemonics.
+# Ref: [bitcoin/bips/bip-0039](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki)
 module Bip0039
+  # The `VERSION` of the `Bip0039` module.
   VERSION = "0.1.0"
 end

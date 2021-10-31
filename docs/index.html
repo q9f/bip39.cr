@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 1.2.0">
+<meta name="crystal_docs.project_version" content="q9f/docs/html-dev">
+<meta name="crystal_docs.project_name" content="bip39">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="bip39">
+  <title>bip39 q9f/docs/html-dev</title>
+  <script type="text/javascript">
+  CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          bip39
+        </a>
+      </h1>
+
+      <span class="project-version">
+        q9f/docs/html-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="bip39/Bip0039" data-name="bip0039">
+      <a href="Bip0039.html">Bip0039</a>
+      
+        <ul>
+  
+  <li class=" " data-id="bip39/Bip0039/Mnemonic" data-name="bip0039::mnemonic">
+      <a href="Bip0039/Mnemonic.html">Mnemonic</a>
+      
+    </li>
+  
+  <li class=" " data-id="bip39/Bip0039/Util" data-name="bip0039::util">
+      <a href="Bip0039/Util.html">Util</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1><a id="bip39.cr" class="anchor" href="#bip39.cr">  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>bip39.cr</h1>
+<p><a href="https://github.com/q9f/bip39.cr/actions"><img src="https://img.shields.io/github/workflow/status/q9f/bip39.cr/Nightly" alt="Build Status" /></a>
+<a href="https://codecov.io/gh/q9f/bip39.cr"><img src="https://codecov.io/gh/q9f/bip39.cr/branch/main/graph/badge.svg?token=ngxRs9HdJA" alt="Code Coverage" /></a>
+<a href="https://q9f.github.io/secp256k1.cr/"><img src="https://img.shields.io/badge/docs-html-black" alt="Documentation" /></a>
+<a href="https://github.com/q9f/bip39.cr/releases/latest"><img src="https://img.shields.io/github/v/release/q9f/bip39.cr?include_prereleases&amp;color=black" alt="Release" /></a>
+<a href="https://github.com/q9f/bip39.cr/search?l=crystal"><img src="https://img.shields.io/github/languages/top/q9f/bip39.cr?color=black" alt="Language" /></a>
+<a href="LICENSE"><img src="https://img.shields.io/github/license/q9f/bip39.cr.svg?color=black" alt="License" /></a></p>
+<p>a native library implementing <code>bip-0039</code> mnemonics purely for the crystal language.</p>
+<blockquote>
+<p><em>this bip (0039) describes the implementation of a mnemonic code or mnemonic sentence -- a group of easy to remember words -- for the generation of deterministic wallets.</em></p>
+<p><em>it consists of two parts: generating the mnemonic and converting it into a binary seed. this seed can be later used to generate deterministic wallets using bip-0032 or similar methods.</em></p>
+</blockquote>
+<p>ref: <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">bitcoin/bips/bip-0039</a></p>
+<h1><a id="installation" class="anchor" href="#installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>installation</h1>
+<p>add the <code>bip39</code> library to your <code>shard.yml</code></p>
+<pre><code class="language-yaml">dependencies:
+  bip39:
+    github: q9f/bip39.cr
+    version: &quot;~&gt; 0.1&quot;</code></pre>
+<h1><a id="usage" class="anchor" href="#usage">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>usage</h1>
+<pre><code class="language-crystal"><span class="c"># import bip39</span>
+<span class="k">require</span> <span class="s">&quot;bip39&quot;</span></code></pre>
+<p>you can generate and recover mnemonics fully adhering to the <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">bip-0039 specification</a>.</p>
+<pre><code class="language-crystal">m0 <span class="o">=</span> <span class="t">Bip0039</span><span class="t">::</span><span class="t">Mnemonic</span>.<span class="k">new</span>
+<span class="c"># =&gt; &lt;Bip0039::Mnemonic:0x7f51769bcd20 @ent=128, @seed=183297182565288719506055787609377395053&gt;</span>
+
+m0.to_words
+<span class="c"># =&gt; [&quot;measure&quot;, &quot;come&quot;, &quot;cube&quot;, &quot;ostrich&quot;, &quot;wide&quot;, &quot;inspire&quot;, &quot;hello&quot;, &quot;essay&quot;, &quot;ready&quot;, &quot;cute&quot;, &quot;reform&quot;, &quot;sustain&quot;]</span>
+
+m0.to_hex
+<span class="c"># =&gt; &quot;89e5c0d5ce7faaea9ab269b2c6d6d16d&quot;</span></code></pre>
+<p>the default entropy is of 128 bits. this shard can generate seeds of of 128/160/192/224/256-bit entropy. just initialize mnemonics with the bit-size, e.g., <code>Bip0039::Mnemonic.new 256</code>.</p>
+<p>it's easily possible to recover bip-0039 mnemonics from a phrase or a seed by simply passing it to the constructor.</p>
+<pre><code class="language-crystal">m1 <span class="o">=</span> <span class="t">Bip0039</span><span class="t">::</span><span class="t">Mnemonic</span>.<span class="k">new</span> [<span class="s">&quot;measure&quot;</span>, <span class="s">&quot;come&quot;</span>, <span class="s">&quot;cube&quot;</span>, <span class="s">&quot;ostrich&quot;</span>, <span class="s">&quot;wide&quot;</span>, <span class="s">&quot;inspire&quot;</span>, <span class="s">&quot;hello&quot;</span>, <span class="s">&quot;essay&quot;</span>, <span class="s">&quot;ready&quot;</span>, <span class="s">&quot;cute&quot;</span>, <span class="s">&quot;reform&quot;</span>, <span class="s">&quot;sustain&quot;</span>]
+<span class="c"># =&gt; &lt;Bip0039::Mnemonic:0x7f37ca6e4c80 @ent=128, @seed=183297182565288719506055787609377395053&gt;</span>
+m1.to_hex
+<span class="c"># =&gt; &quot;89e5c0d5ce7faaea9ab269b2c6d6d16d&quot;</span>
+
+m2 <span class="o">=</span> <span class="t">Bip0039</span><span class="t">::</span><span class="t">Mnemonic</span>.<span class="k">new</span> <span class="s">&quot;89e5c0d5ce7faaea9ab269b2c6d6d16d&quot;</span>
+<span class="c"># =&gt; &lt;Bip0039::Mnemonic:0x7f37ca6e4be0 @ent=128, @seed=183297182565288719506055787609377395053&gt;</span>
+m2.to_words
+<span class="c"># =&gt; [&quot;measure&quot;, &quot;come&quot;, &quot;cube&quot;, &quot;ostrich&quot;, &quot;wide&quot;, &quot;inspire&quot;, &quot;hello&quot;, &quot;essay&quot;, &quot;ready&quot;, &quot;cute&quot;, &quot;reform&quot;, &quot;sustain&quot;]</span></code></pre>
+<h1><a id="documentation" class="anchor" href="#documentation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>documentation</h1>
+<p>the full library documentation can be found here: <a href="https://q9f.github.io/bip39.cr/">q9f.github.io/bip39.cr</a></p>
+<p>generate a local copy with:</p>
+<pre><code class="language-crystal">crystal docs</code></pre>
+<h1><a id="testing" class="anchor" href="#testing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>testing</h1>
+<p>the library is entirely specified through tests in <code>./spec</code>; run:</p>
+<pre><code class="language-bash">crystal spec --verbose</code></pre>
+<h1><a id="contribute" class="anchor" href="#contribute">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>contribute</h1>
+<p>create a pull request, and make sure tests and linter passes.</p>
+<p>license: apache license v2.0</p>
+<p>contributors: <a href="https://github.com/q9f/"><strong>@q9f</strong></a></p>
+</div>
+</body>
+</html>
