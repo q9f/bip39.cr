@@ -104,6 +104,7 @@ describe Bip0039::Mnemonic do
   end
 
   describe "bip0039 test vectors" do
+    # trezor bip0039 test vectors
     # see https://github.com/trezor/python-mnemonic/blob/master/vectors.json
     it "should pass case 00000000000000000000000000000000" do
       Bip0039::Mnemonic.new("00000000000000000000000000000000").to_words.should eq ["abandon", "abandon", "abandon", "abandon", "abandon", "abandon", "abandon", "abandon", "abandon", "abandon", "abandon", "about"]
