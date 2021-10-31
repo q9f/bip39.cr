@@ -2,7 +2,7 @@
 
 [![Build Status](https://img.shields.io/github/workflow/status/q9f/bip39.cr/Nightly)](https://github.com/q9f/bip39.cr/actions)
 [![Code Coverage](https://codecov.io/gh/q9f/bip39.cr/branch/main/graph/badge.svg?token=ngxRs9HdJA)](https://codecov.io/gh/q9f/bip39.cr)
-[![Documentation](https://img.shields.io/badge/docs-html-black)](https://q9f.github.io/secp256k1.cr/)
+[![Documentation](https://img.shields.io/badge/docs-html-black)](https://q9f.github.io/bip39.cr/)
 [![Release](https://img.shields.io/github/v/release/q9f/bip39.cr?include_prereleases&color=black)](https://github.com/q9f/bip39.cr/releases/latest)
 [![Language](https://img.shields.io/github/languages/top/q9f/bip39.cr?color=black)](https://github.com/q9f/bip39.cr/search?l=crystal)
 [![License](https://img.shields.io/github/license/q9f/bip39.cr.svg?color=black)](LICENSE)
