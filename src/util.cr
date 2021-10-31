@@ -14,7 +14,6 @@
 
 module Bip0039
   class Util
-
     # reads the bip-39 english wordlist from file
     def self.bip0039_word_list : Array(String)
       file_path = Path.new("dict", "english.txt")
@@ -27,27 +26,27 @@ module Bip0039
     end
 
     # generates a padded binary string from hex with given size
-    def self.hex_to_padded_bin (hex : String, size : Int) : String
+    def self.hex_to_padded_bin(hex : String, size : Int) : String
       num = BigInt.new hex, 16
       bin = num.to_s(2)
       return bin.rjust size, '0'
     end
 
     # generates a padded binary string from a big number with given size
-    def self.num_to_padded_bin (num : BigInt | Int, size : Int) : String
+    def self.num_to_padded_bin(num : BigInt | Int, size : Int) : String
       bin = num.to_s(2)
       return bin.rjust size, '0'
     end
 
     # generates a padded hex string from a binary string with given size
-    def self.bin_to_padded_hex (bin : String, size : Int) : String
+    def self.bin_to_padded_hex(bin : String, size : Int) : String
       num = BigInt.new bin, 2
       hex = num.to_s(16)
       return hex.rjust (size / 4).to_i, '0'
     end
 
     # generates a padded hex string from a big number with given size
-    def self.num_to_padded_hex (num : BigInt | Int, size : Int) : String
+    def self.num_to_padded_hex(num : BigInt | Int, size : Int) : String
       hex = num.to_s(16)
       return hex.rjust (size / 4).to_i, '0'
     end
