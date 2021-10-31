@@ -1,0 +1,10 @@
+name: bip39
+version: 0.1.0
+description: "A native library implementing BIP-0039 mnemonics for the Crystal programming language."
+
+authors:
+  - Afr Schoe <crystal@q9f.cc>
+
+crystal: 1.2.1
+
+license: APLv2
