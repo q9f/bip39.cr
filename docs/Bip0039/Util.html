@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 1.2.0">
+<meta name="crystal_docs.project_version" content="q9f/docs/html-dev">
+<meta name="crystal_docs.project_name" content="bip39">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="bip39">
+  <title>Bip0039::Util - bip39 q9f/docs/html-dev</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          bip39
+        </a>
+      </h1>
+
+      <span class="project-version">
+        q9f/docs/html-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="bip39/Bip0039" data-name="bip0039">
+      <a href="../Bip0039.html">Bip0039</a>
+      
+        <ul>
+  
+  <li class=" " data-id="bip39/Bip0039/Mnemonic" data-name="bip0039::mnemonic">
+      <a href="../Bip0039/Mnemonic.html">Mnemonic</a>
+      
+    </li>
+  
+  <li class=" current" data-id="bip39/Bip0039/Util" data-name="bip0039::util">
+      <a href="../Bip0039/Util.html">Util</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> Bip0039::Util
+
+</h1>
+
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>A collection of utilities for <code><a href="../Bip0039.html">Bip0039</a></code> mnemonic management, e.g.,
+loading word lists from dictionaries, or n-bit padding operations.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      util.cr
+    
+    <br/>
+  
+
+
+
+
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#bin_to_padded_hex%28bin%3AString%2Csize%3AInt%29%3AString-class-method" class="signature"><strong>.bin_to_padded_hex</strong>(bin : String, size : Int) : String</a>
+        
+          <div class="summary"><p>A generic utility to generate a padded hex string from a binary string with given size.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#hex_to_padded_bin%28hex%3AString%2Csize%3AInt%29%3AString-class-method" class="signature"><strong>.hex_to_padded_bin</strong>(hex : String, size : Int) : String</a>
+        
+          <div class="summary"><p>A generic utility to generate a padded binary string from a hex string with given size.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#num_to_padded_bin%28num%3ABigInt%7CInt%2Csize%3AInt%29%3AString-class-method" class="signature"><strong>.num_to_padded_bin</strong>(num : BigInt | Int, size : Int) : String</a>
+        
+          <div class="summary"><p>A generic utility to generate a padded binary string from a big number with given size.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#num_to_padded_hex%28num%3ABigInt%7CInt%2Csize%3AInt%29%3AString-class-method" class="signature"><strong>.num_to_padded_hex</strong>(num : BigInt | Int, size : Int) : String</a>
+        
+          <div class="summary"><p>A generic utility to generate a padded hex string from a big number with given size.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#word_list%3AArray%28String%29-class-method" class="signature"><strong>.word_list</strong> : Array(String)</a>
+        
+          <div class="summary"><p>A generic utility to load the standardized english language word list from file.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="bin_to_padded_hex(bin:String,size:Int):String-class-method">
+      <div class="signature">
+        
+        def self.<strong>bin_to_padded_hex</strong>(bin : String, size : Int) : String
+
+        <a class="method-permalink" href="#bin_to_padded_hex%28bin%3AString%2Csize%3AInt%29%3AString-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>A generic utility to generate a padded hex string from a binary string
+with given size.</p>
+<p>Parameters:</p>
+<ul>
+<li><code>bin</code> (<code>String</code>): the binary string to be formatted as padded hex string.</li>
+<li><code>size</code> (<code>Int</code>): the size in bits for the resulting hex string, e.g., 128.</li>
+</ul>
+<pre><code class="language-crystal"><span class="t">Bip0039</span><span class="t">::</span><span class="t">Util</span>.bin_to_padded_hex <span class="s">&quot;1100101&quot;</span>, <span class="n">32</span>
+<span class="c"># =&gt; &quot;00000065&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="hex_to_padded_bin(hex:String,size:Int):String-class-method">
+      <div class="signature">
+        
+        def self.<strong>hex_to_padded_bin</strong>(hex : String, size : Int) : String
+
+        <a class="method-permalink" href="#hex_to_padded_bin%28hex%3AString%2Csize%3AInt%29%3AString-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>A generic utility to generate a padded binary string from a hex string
+with given size.</p>
+<p>Parameters:</p>
+<ul>
+<li><code>hex</code> (<code>String</code>): the hex string to be formatted as padded binary string.</li>
+<li><code>size</code> (<code>Int</code>): the size in bits for the resulting hex string, e.g., 128.</li>
+</ul>
+<pre><code class="language-crystal"><span class="t">Bip0039</span><span class="t">::</span><span class="t">Util</span>.hex_to_padded_bin <span class="s">&quot;69&quot;</span>, <span class="n">32</span>
+<span class="c"># =&gt; &quot;00000000000000000000000001101001&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="num_to_padded_bin(num:BigInt|Int,size:Int):String-class-method">
+      <div class="signature">
+        
+        def self.<strong>num_to_padded_bin</strong>(num : BigInt | Int, size : Int) : String
+
+        <a class="method-permalink" href="#num_to_padded_bin%28num%3ABigInt%7CInt%2Csize%3AInt%29%3AString-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>A generic utility to generate a padded binary string from a big number
+with given size.</p>
+<p>Parameters:</p>
+<ul>
+<li><code>num</code> (<code>BigInt | Int</code>): the number to be formatted as padded binary string.</li>
+<li><code>size</code> (<code>Int</code>): the size in bits for the resulting hex string, e.g., 128.</li>
+</ul>
+<pre><code class="language-crystal"><span class="t">Bip0039</span><span class="t">::</span><span class="t">Util</span>.num_to_padded_bin <span class="n">137</span>, <span class="n">32</span>
+<span class="c"># =&gt; &quot;00000000000000000000000010001001&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="num_to_padded_hex(num:BigInt|Int,size:Int):String-class-method">
+      <div class="signature">
+        
+        def self.<strong>num_to_padded_hex</strong>(num : BigInt | Int, size : Int) : String
+
+        <a class="method-permalink" href="#num_to_padded_hex%28num%3ABigInt%7CInt%2Csize%3AInt%29%3AString-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>A generic utility to generate a padded hex string from a big number
+with given size.</p>
+<p>Parameters:</p>
+<ul>
+<li><code>num</code> (<code>BigInt | Int</code>): the number to be formatted as padded hex string.</li>
+<li><code>size</code> (<code>Int</code>): the size in bits for the resulting hex string, e.g., 128.</li>
+</ul>
+<pre><code class="language-crystal"><span class="t">Bip0039</span><span class="t">::</span><span class="t">Util</span>.num_to_padded_hex <span class="n">137</span>, <span class="n">32</span>
+<span class="c"># =&gt; &quot;00000089&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="word_list:Array(String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>word_list</strong> : Array(String)
+
+        <a class="method-permalink" href="#word_list%3AArray%28String%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>A generic utility to load the standardized english language word list
+from file.</p>
+<pre><code class="language-crystal"><span class="t">Bip0039</span><span class="t">::</span><span class="t">Util</span>.word_list
+<span class="c"># =&gt; [&quot;abandon&quot;, &quot;ability&quot;, &quot;able&quot;, &quot;about&quot;, &quot;above&quot;, ...</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
