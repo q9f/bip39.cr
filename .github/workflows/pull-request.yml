@@ -1,0 +1,24 @@
+name: Pull Requests
+
+on:
+  push:
+    branches:
+    - main
+  pull-request:
+    branches:
+    - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: crystallang/crystal
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Dependencies
+      run: |
+        shards install --verbose
+    - name: Run Test Suite
+      run: |
+        crystal tool format --check
+        crystal spec --verbose --error-trace --time -Dpreview_mt
