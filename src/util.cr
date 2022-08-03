@@ -23,7 +23,7 @@ module Bip0039::Util
   # # => ["abandon", "ability", "able", "about", "above", ...
   # ```
   def self.word_list : Array(String)
-    file_path = Path.new("dict", "english.txt")
+    file_path = File.expand_path("../dict/english.txt", __DIR__)
     list_file = File.read(file_path)
     word_list = [] of String
     list_file.each_line do |word|
