@@ -16,5 +16,5 @@
 # Ref: [bitcoin/bips/bip-0039](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki)
 module Bip0039
   # The `VERSION` of the `Bip0039` module.
-  VERSION = "0.1.0"
+  VERSION = "0.1.1"
 end
