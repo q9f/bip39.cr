@@ -1,5 +1,5 @@
 var data = {lines:[
-{"lineNum":"    1","line":"# Copyright 2021-2022 Afri Schoedon"},
+{"lineNum":"    1","line":"# Copyright 2021-23 Afri Schoedon @q9f"},
 {"lineNum":"    2","line":"#"},
 {"lineNum":"    3","line":"# Licensed under the Apache License, Version 2.0 (the \"License\");"},
 {"lineNum":"    4","line":"# you may not use this file except in compliance with the License."},
